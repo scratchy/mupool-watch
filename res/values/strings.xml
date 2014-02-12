@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MuPool.com</string>
+    <string name="title_section1">Settings</string>
+    <string name="title_section2">Current Workers</string>
+</resources>
