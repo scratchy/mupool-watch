@@ -1,4 +1,4 @@
-package com.example.mupool.com;
+package com.mupool;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -19,18 +18,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.util.JsonReader;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -212,17 +205,17 @@ public class MainActivity extends FragmentActivity {
 			return rootView;
 		}
 	}
-	private class GetWorkerInfos extends AsyncTask<String, Void, JSONObject> {
+	class GetWorkerInfos extends AsyncTask<String, Void, JSONObject> {
 		View rootView = null;
-        public void setRootView(View rootView2) {
+	    public void setRootView(View rootView2) {
 			this.rootView = rootView2;
 			
 		}
 		@Override
-        protected JSONObject doInBackground(String... urls) {
-              
-            // params comes from the execute() call: params[0] is the url.
-            try {
+	    protected JSONObject doInBackground(String... urls) {
+	          
+	        // params comes from the execute() call: params[0] is the url.
+	        try {
 				return JSONReader.readJsonFromUrl(urls[0]);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -231,12 +224,12 @@ public class MainActivity extends FragmentActivity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            return null;
-        }
-        // onPostExecute displays the results of the AsyncTask.
-        @Override
-        protected void onPostExecute(JSONObject result) {
-        	try {
+	        return null;
+	    }
+	    // onPostExecute displays the results of the AsyncTask.
+	    @Override
+	    protected void onPostExecute(JSONObject result) {
+	    	try {
 				if(result == null)
 					return;
 				TableLayout table = (TableLayout)rootView.findViewById(R.id.tableSample);
@@ -262,8 +255,7 @@ public class MainActivity extends FragmentActivity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-       }
-    }
-
+	   }
+	}
 
 }
