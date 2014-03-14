@@ -25,9 +25,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class MainActivity extends FragmentActivity {
 
@@ -48,12 +52,14 @@ public class MainActivity extends FragmentActivity {
 	
     static SharedPreferences settings = null;
     
-    static GetWorkerInfos wt = null;
+    static GetWorkerInfos wt = null; 
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
+		setContentView(R.layout.activity_main);
+		
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
@@ -75,16 +81,10 @@ public class MainActivity extends FragmentActivity {
 		      SharedPreferences.Editor editor = settings.edit();
 			  editor.putString("api-hash", data[2]);
 			  editor.apply();
-			  editor.commit();
+			  editor.commit();			  			  
 		  }
+		  mSectionsPagerAdapter.notifyDataSetChanged();
 		}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -141,10 +141,15 @@ public class MainActivity extends FragmentActivity {
 		public DummySectionFragment() {
 		}
 
+		public void onResume() {
+			super.onResume();
+		};
+		
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 			String apiKey = settings.getString("api-hash", null);
+		    final SharedPreferences.Editor editor = settings.edit();
+			String selectedCoin = settings.getString("selectedCoin", "BTC");
 			
 			View rootView = null;
 			int val = getArguments().getInt(ARG_SECTION_NUMBER);
@@ -160,6 +165,7 @@ public class MainActivity extends FragmentActivity {
 					    public void onClick(View v) {					    
 					    	IntentIntegrator integrator = new IntentIntegrator(getActivity());
 					    	integrator.initiateScan();
+					    	((View) v.getParent()).invalidate();
 					    }
 					});
 
@@ -179,6 +185,38 @@ public class MainActivity extends FragmentActivity {
 					{
 						t.setText("Not set");
 					}
+					
+
+				    // Get Selected Radio Button and display output
+				    RadioGroup rgOpinion  = (RadioGroup) rootView.findViewById(R.id.selectedCoin);
+				    rgOpinion.setOnCheckedChangeListener(new OnCheckedChangeListener()
+			        {
+			            @Override
+			            public void onCheckedChanged(RadioGroup group, int checkedId)
+			            {
+			                switch(checkedId)
+			                {
+				                case R.id.radioBTC:
+				      			  	editor.putString("selectedCoin", "BTC");
+				                    break;
+				                case R.id.radioLTC:
+				      			  	editor.putString("selectedCoin", "LTC");
+				                    break;
+				                case R.id.radioFTC:
+				      			  	editor.putString("selectedCoin", "FTC");
+				                    break;
+				                case R.id.radioDOGE:
+				      			  	editor.putString("selectedCoin", "DOGE");
+				                    break;
+				                default:
+				      			  	editor.putString("selectedCoin", "BTC");
+			                }
+
+		      			  	editor.apply();
+		      			  	editor.commit();
+			            }
+			        });
+				    
 				    
 				       
 				}
@@ -187,9 +225,8 @@ public class MainActivity extends FragmentActivity {
 				{
 					rootView = inflater.inflate(R.layout.poolstats,container, false);
 					
-
 				    wt.setRootView(rootView);
-					wt.execute("https://mupool.com/index.php?page=api&action=getuserworkers&api_key="+apiKey);
+					wt.execute("https://mupool.com/index.php?page=api&action=getuserworkers&coin="+selectedCoin+"&api_key="+apiKey);
 					
 				}
 					break;

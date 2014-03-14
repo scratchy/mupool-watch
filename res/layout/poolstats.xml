@@ -8,30 +8,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$DummySectionFragment" >
 
-    <TableLayout
-        android:id="@+id/tableSample"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-   		android:layout_height="wrap_content"
-        android:stretchColumns="0" >
-        <TableRow
-            android:id="@+id/tableHeader" >
-            <TextView
-                    android:id="@+id/labelHeader1"
-                style="@style/TableHeader"
-                android:text="WorkerName"/>
+        android:layout_height="match_parent" >
 
-            <TextView
-                android:id="@+id/labelHeader2"
-                style="@style/TableHeader"
-                android:text="Hashrate (kH/s)"
-                />
-            <TextView
-                android:id="@+id/labelHeader2"
-                style="@style/TableHeader"
-                android:text="Status" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-        </TableRow> 
-    </TableLayout>
+	    <TableLayout
+	        android:id="@+id/tableSample"
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	        android:stretchColumns="0" >
+	        <TableRow
+	            android:id="@+id/tableHeader" >
+	            <TextView
+	                    android:id="@+id/labelHeader1"
+	                style="@style/TableHeader"
+	                android:text="WorkerName"/>
+	
+	            <TextView
+	                android:id="@+id/labelHeader2"
+	                style="@style/TableHeader"
+	                android:text="Hashrate (kH/s)"
+	                />
+	            <TextView
+	                android:id="@+id/labelHeader2"
+	                style="@style/TableHeader"
+	                android:text="Status" />
+	
+	        </TableRow>
+	 
+	    </TableLayout>
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginBottom="12dp"
+	        android:layout_toRightOf="@+id/section_label"
+	        android:text="Please rotate your Screen for updates!"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
