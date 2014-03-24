@@ -76,7 +76,7 @@ public class MainActivity extends FragmentActivity {
 
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-		  if (scanResult != null) {
+		  if (scanResult != null && scanResult.getContents().contains("https://mupool.com")) {
 			  String[] data = scanResult.getContents().split("\\|");
 		      SharedPreferences.Editor editor = settings.edit();
 			  editor.putString("api-hash", data[2]);
