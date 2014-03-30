@@ -72,6 +72,15 @@
                     android:layout_marginTop="33dp"
                     android:text="BTC"
                     android:checked="true"/>
+                
+                <RadioButton
+                    android:id="@+id/radioPPC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tableLayout1"
+                    android:layout_below="@+id/tableLayout1"
+                    android:text="PPC"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/radioLTC"
