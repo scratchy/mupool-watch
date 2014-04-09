@@ -60,15 +60,13 @@
             <RadioGroup
                 android:id="@+id/selectedCoin"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content"                
                 android:layout_weight="1" >
 
                 <RadioButton
                     android:id="@+id/radioBTC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tableLayout1"
-                    android:layout_below="@+id/tableLayout1"
                     android:layout_marginTop="33dp"
                     android:text="BTC"
                     android:checked="true"/>
@@ -77,8 +75,6 @@
                     android:id="@+id/radioPPC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/tableLayout1"
-                    android:layout_below="@+id/tableLayout1"
                     android:text="PPC"
                     android:checked="true"/>
 
@@ -86,39 +82,23 @@
                     android:id="@+id/radioLTC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/radioButton2"
-                    android:layout_below="@+id/radioButton2"
                     android:text="LTC" />
 
                 <RadioButton
                     android:id="@+id/radioFTC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/radioButton1"
-                    android:layout_below="@+id/radioButton1"
                     android:text="FTC" />
 
                 <RadioButton
                     android:id="@+id/radioDOGE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/radioButton3"
-                    android:layout_below="@+id/radioButton3"
                     android:text="DOGE" />
 
             </RadioGroup>
 
         </TableRow>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="12dp"
-        android:layout_toRightOf="@+id/section_label"
-        android:text="Please rotate your Screen for updates!"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
     </TableLayout>
 
 </RelativeLayout>

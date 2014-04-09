@@ -3,13 +3,16 @@
     <TextView
         android:id="@+id/textItem1"
         style="@style/TableItem"
+        android:textColor="@color/black"
         android:text="" />
     <TextView
         android:id="@+id/textItem2"
         style="@style/TableItem"
+        android:textColor="@color/black"
         android:text="" />
     <TextView
         android:id="@+id/textItem3"
         style="@style/TableItem"
+        android:textColor="@color/black"
         android:text="" />
 </TableRow>
