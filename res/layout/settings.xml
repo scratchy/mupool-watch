@@ -95,6 +95,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DOGE" />
+                
+                <RadioButton
+                    android:id="@+id/radioVTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VTC" />
 
             </RadioGroup>
 
