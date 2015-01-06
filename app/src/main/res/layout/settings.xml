@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity$DummySectionFragment" >
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0" >
+
+        <TableRow android:id="@+id/tableHeader" >
+
+            <TextView
+                android:id="@+id/labelHeader1"
+                style="@style/TableHeader"
+                android:text="API-Key" />
+
+            <TextView
+                android:id="@+id/labelHeader2"
+                style="@style/TableHeader" />
+
+            <TextView
+                android:id="@+id/labelHeader3"
+                style="@style/TableHeader"
+                android:layout_gravity="right"
+                android:text="Status" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/TableItem"
+                android:text="Api" />
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/TableItem"
+                android:layout_width="100dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="Rescan" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                style="@style/TableItem"
+                android:layout_width="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/wrong" />
+        </TableRow>
+
+        <TableRow>
+
+            <RadioGroup
+                android:id="@+id/selectedCoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:layout_weight="1" >
+
+                <RadioButton
+                    android:id="@+id/radioBTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="33dp"
+                    android:text="BTC"
+                    android:checked="true"/>
+                
+                <RadioButton
+                    android:id="@+id/radioPPC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PPC"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioLTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LTC" />
+
+                <RadioButton
+                    android:id="@+id/radioFTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FTC" />
+
+                <RadioButton
+                    android:id="@+id/radioDOGE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DOGE" />
+                
+                <RadioButton
+                    android:id="@+id/radioVTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VTC" />
+
+            </RadioGroup>
+
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
