@@ -202,9 +202,15 @@ public class MainActivity extends FragmentActivity {
 							                case R.id.radioPPC:
 							      			  	editor.putString("selectedCoin", "PPC");
 							                    break;
-							                case R.id.radioVTC:
-							      			  	editor.putString("selectedCoin", "VTC");
-							                    break;
+                                            case R.id.radioVTC:
+                                                editor.putString("selectedCoin", "VTC");
+                                                break;
+                                            case R.id.radioDRK:
+                                                editor.putString("selectedCoin", "DRK");
+                                                break;
+                                            case R.id.radioTIT:
+                                                editor.putString("selectedCoin", "TIT");
+                                                break;
 							                default:
 							      			  	editor.putString("selectedCoin", "BTC");
 							      			  	break;

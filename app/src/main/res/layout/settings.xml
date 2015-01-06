@@ -95,12 +95,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DOGE" />
-                
+
                 <RadioButton
                     android:id="@+id/radioVTC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="VTC" />
+
+                <RadioButton
+                    android:id="@+id/radioDRK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DRK" />
+
+                <RadioButton
+                    android:id="@+id/radioTIT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TIT" />
 
             </RadioGroup>
 
